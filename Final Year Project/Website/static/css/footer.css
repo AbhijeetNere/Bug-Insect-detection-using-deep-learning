@@ -1,0 +1,32 @@
+
+.footer{
+    /* width:100%; */
+    /* text-align: center ; */
+    
+    /* padding: 30px 0;       */
+    background: linear-gradient(to left, #61859e, #a9b7bc); 
+    font-weight: bold;
+}
+
+.footerh2{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: 600;
+    /* color: #007fd3 ; */
+}
+
+.icons .fa{
+    color: #006db6 ;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+
+}
+
+.fa-heart{
+    color: #3498db;
+}

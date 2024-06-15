@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Classification</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bs-brain@2.0.3/components/teams/team-1/assets/css/team-1.css"
+    />
+    <link
+      rel="icon"
+      href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia2JSZmioCiffRK5rQm-OF-jQ9TQoVj-W1CGp_4Pr31SmXJt_YwqYHW1-3hUIXrhEXRS1TR_AnKviy5MHDCQz7b4CmUmHFTOoHwnqPXwu8wAcwibaJCXx8raEkPM055Mqz00puXIpjFEo-OD8CJ-x5liaYrjgnp3BvQm99bHb2kmnybzVZdQ9OYHW5zXA/s320/stock.png"
+      sizes="16x16"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/css/footer.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        padding-top: 100px;
+      }
+      .navbar h1 {
+        margin-right: 400px;
+      }
+      .navbar a:hover {
+        background-color: #555;
+      }
+      .container {
+        margin: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-group {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        margin-left: 400px;
+        margin-bottom: 20px;
+      }
+      input[type="file"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+        flex-grow: 1;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center; /* Center align the text */
+      }
+      .result h2{
+        margin-left: 200px;
+      }
+
+      .result img {
+        max-width: 300px; /* Make the image smaller */
+        margin-top: 20px;
+        display: block;
+        margin-left: 550px;
+        margin-right: auto;
+        border-radius: 50%; 
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-left: 200px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+        /* width: 100px; */
+      }
+      th {
+        
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/team">Team</a>
+      </div>
+      <h1>Insect Detection Web Portal</h1>
+      <div></div>
+    </div>
+
+    <div class="container">
+      <form action="/predict" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+          <input type="file" name="file" accept="image/*" required />
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+
+      {% if prediction_text %}
+      <div class="result">
+        <h2>{{ prediction_text }}</h2>
+        <img
+          src="{{ url_for('static', filename=file) }}"
+          alt="Uploaded Image"
+        />
+      </div>
+      {% endif %} {% if data %}
+      <div class="data">
+        <!-- <h2>Data for {{ prediction_text }}</h2> -->
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Pesticides</th>
+              <th>Damage</th>
+              <th>Prevention</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in data %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+              <td>{{ row[2] }}</td>
+              <td>{{ row[3] }}</td>
+              <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

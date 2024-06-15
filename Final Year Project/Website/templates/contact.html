@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/contact.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/teams/team-1/assets/css/team-1.css">
+    <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia2JSZmioCiffRK5rQm-OF-jQ9TQoVj-W1CGp_4Pr31SmXJt_YwqYHW1-3hUIXrhEXRS1TR_AnKviy5MHDCQz7b4CmUmHFTOoHwnqPXwu8wAcwibaJCXx8raEkPM055Mqz00puXIpjFEo-OD8CJ-x5liaYrjgnp3BvQm99bHb2kmnybzVZdQ9OYHW5zXA/s320/stock.png" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar h1 {
+            margin-right: 400px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            margin-bottom: 80px;
+            background-color: #fff;
+            /* padding: 10px; */
+            padding-left: 120px;
+            padding-right: 120px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/team">Team</a>
+        </div>
+        <h1>Insect Detection Web Portal</h1>
+        <div></div>
+      </div>
+
+    <div class="wrapper">
+        <div class="main">
+            <div class="container">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <h2>Contact Us</h2>
+
+                    <input type="hidden" name="access_key" value="2433985d-a8b4-42a1-8750-313d88a08e45">
+        
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+        
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
